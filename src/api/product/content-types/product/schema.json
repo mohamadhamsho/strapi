@@ -4,8 +4,7 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product",
-    "description": ""
+    "displayName": "Product"
   },
   "options": {
     "draftAndPublish": true
@@ -15,22 +14,11 @@
     "name": {
       "type": "string"
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "description": {
+      "type": "text"
     },
     "mrp": {
       "type": "decimal"
-    },
-    "description": {
-      "type": "blocks"
     },
     "sellingPrice": {
       "type": "decimal"
@@ -41,6 +29,16 @@
     "slug": {
       "type": "uid",
       "targetField": "name"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     },
     "category": {
       "type": "relation",

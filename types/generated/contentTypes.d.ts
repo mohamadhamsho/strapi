@@ -826,19 +826,18 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'Product';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    description: Attribute.Text;
     mrp: Attribute.Decimal;
-    description: Attribute.Blocks;
     sellingPrice: Attribute.Decimal;
     itemQuantityType: Attribute.String;
     slug: Attribute.UID<'api::product.product', 'name'>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     category: Attribute.Relation<
       'api::product.product',
       'oneToOne',
