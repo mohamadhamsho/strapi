@@ -12,27 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string"
     },
-    "banner": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "price": {
-      "type": "decimal"
-    },
-    "instanDelivery": {
-      "type": "boolean"
-    },
-    "files": {
+    "images": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -43,19 +26,26 @@
         "audios"
       ]
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "TECH",
-        "MARKETING",
-        "SECURITY"
-      ]
+    "mrp": {
+      "type": "decimal"
     },
     "description": {
       "type": "blocks"
     },
-    "whatsincluded": {
-      "type": "blocks"
+    "sellingPrice": {
+      "type": "decimal"
+    },
+    "itemQuantityType": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }

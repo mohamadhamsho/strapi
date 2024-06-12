@@ -832,14 +832,18 @@ export interface ApiProductProduct extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    banner: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    price: Attribute.Decimal;
-    instanDelivery: Attribute.Boolean;
-    files: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    category: Attribute.Enumeration<['TECH', 'MARKETING', 'SECURITY']>;
+    name: Attribute.String;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    mrp: Attribute.Decimal;
     description: Attribute.Blocks;
-    whatsincluded: Attribute.Blocks;
+    sellingPrice: Attribute.Decimal;
+    itemQuantityType: Attribute.String;
+    slug: Attribute.UID<'api::product.product', 'name'>;
+    category: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
